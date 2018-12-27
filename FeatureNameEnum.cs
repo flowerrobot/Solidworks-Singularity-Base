@@ -8,6 +8,44 @@ namespace SingularityBase
 {
     public class FeatureNameEnum
     {
+        //TODO implement this for the below classes
+        public enum Test : int
+        {
+            [StringValue("ExplodeLineProfileFeature")]
+            swTnExplodeLineProfileFeature
+        }
+        /// <summary>
+        /// This attribute is used to represent a string value
+        /// for a value in an enum.
+        /// </summary>
+        public class StringValueAttribute : Attribute
+        {
+
+            #region Properties
+
+            /// <summary>
+            /// Holds the stringvalue for a value in an enum.
+            /// </summary>
+            public string StringValue { get; protected set; }
+
+            #endregion
+
+            #region Constructor
+
+            /// <summary>
+            /// Constructor used to init a StringValue Attribute
+            /// </summary>
+            /// <param name="value"></param>
+            public StringValueAttribute(string value)
+            {
+                this.StringValue = value;
+            }
+
+            #endregion
+
+        }
+
+
 
         public class AssemblyFeaturesEnum
         {
