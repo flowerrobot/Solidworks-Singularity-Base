@@ -2,32 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SingularityBase.UI;
 using SolidWorks.Interop.sldworks;
 
 namespace SingularityBase
 {
     public  interface ISwBaseFunction
     {
-        //This SW App
-        ISingleSldWorks SwApp { get; }
         /// <summary>
-        /// The fuctions unquie ID
+        /// This SW App
         /// </summary>
-        int Id { get; }
-        /// <summary>
-        /// This SW Addin ID
-        /// </summary>
-        int AddinId { get; }
-        /// <summary>
-        /// Defines the type of command
-        /// </summary>
-        CommandType CmdType { get; }
+        ISingleSldWorks SolidWorks { get; set; }
+       
+      
 
         /// <summary>
         /// Name of the Command it should be called
         /// </summary>
         string CommandName { get; }
 
-      
+        /// <summary>
+        /// This command information - this will be set by singularity
+        /// </summary>
+        ISingleCommandDef CommandData { get; set; }
     }
 }

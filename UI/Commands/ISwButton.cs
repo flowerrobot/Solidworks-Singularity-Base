@@ -1,6 +1,6 @@
-﻿namespace SingularityBase.UI.Commands
+﻿namespace SingularityBase.UI
 {
-    public interface ISwButton: ISwRibbion, ISwMenu
+    public interface ISwButton: ISwRibbon, ISwMenu
     {
           
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SingularityBase.UI.Commands
+namespace SingularityBase.UI
 {
     /// <summary>
     /// Defines the information to create a menu. If menu is not requires set MenuType to None.
@@ -24,10 +24,10 @@ namespace SingularityBase.UI.Commands
         int MenuOrder { get; set; }
 
         /// <summary>
-        /// This defines where the command should be seen, Ribbion, menu etc. 
+        /// This defines where the command should be seen, Ribbon, menu etc. 
         /// Leave Blank for default - All
         /// </summary>
-        CommandLocation MenuType { get; set; } //= CommandLocation.All;
+        CommandLocation MenuType { get; } //= CommandLocation.All;
 
         
         #endregion

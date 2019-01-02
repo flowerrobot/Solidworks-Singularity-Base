@@ -7,7 +7,7 @@ namespace SingularityBase
 {
     public interface ISinglePartDoc : ISingleModelDoc, IPartEvents
     {
-        new PartDoc Document { get; }
+        PartDoc Document { get; }
         ISingleCustomPropertyManager CustomPropertyManager(string configName);
 
         IEnumerable<ISingleConfiguration> Configurations { get; }

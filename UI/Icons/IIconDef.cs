@@ -1,15 +1,15 @@
 ﻿using System.Drawing;
 
-namespace SingularityBase.UI.Icons
+namespace SingularityBase.UI
 {
     public interface IIconDef
     {
         /// <summary>
-        /// The small icon size 16 or 20 - Can not be blank
+        /// The small icon size 16 or 20, if blank default will be used
         /// </summary>
         Bitmap ImageSize20 { get; set; }
         /// <summary>
-        /// The large icon size 32 - Can not be blank
+        /// The large icon size 32 -  if blank default will be used
         /// </summary>
         Bitmap ImageSize32 { get; set; }
         /// <summary>
@@ -32,7 +32,8 @@ namespace SingularityBase.UI.Icons
         /// <summary>
         /// THe postion found on the combined tool bar
         /// </summary>
-        int Index { get; }
+        ///int Index { get; }
+        
         /// <summary>
         /// Module who owns this icon profile
         /// </summary>

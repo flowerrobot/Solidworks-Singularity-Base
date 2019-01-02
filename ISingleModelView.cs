@@ -3,7 +3,7 @@ using System;
 
 namespace SingularityBase
 {
-    public interface ISingleModelView
+    public interface ISingleModelView :IDisposable
     {
         ISingleModelDoc Document { get; }
         IModelView ModelView { get; }

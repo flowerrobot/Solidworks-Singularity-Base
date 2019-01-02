@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using SingularityBase.UI.Commands;
 
-namespace SingularityBase
+namespace SingularityBase.UI
 {
-    public interface IMenuCollection
+    public interface IMenuCollection  :IDisposable
     {
         int Id { get; }
         string MenuName { get; }

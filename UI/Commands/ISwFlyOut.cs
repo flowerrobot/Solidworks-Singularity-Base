@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using SolidWorks.Interop.swconst;
 
-namespace SingularityBase.UI.Commands
+namespace SingularityBase.UI
 {
-    public interface ISwFlyOut : ISwCommand, ISwRibbion, ISwMenu
+    public interface ISwFlyOut : ISwCommand, ISwRibbon, ISwMenu
     {
         /// <summary>
         /// Determines the type of flyout button
@@ -16,6 +16,7 @@ namespace SingularityBase.UI.Commands
         /// The type of the flyout.
         /// </value>
           swCommandFlyoutStyle_e FlyoutType { get; }
+
         /// <summary>
         /// This defined the children that should be found within the flyout
         /// each item should be defined as  typeof(TesSubflyoutButton)  which are inherited from the swFlyOutButton class
@@ -23,19 +24,13 @@ namespace SingularityBase.UI.Commands
         /// <value>
         /// The swFlyOutButton children.
         /// </value>
-         ///Type[] SubButtons { get; }
-        /// <summary>
-        /// Lis of commands that are on the flyout
-        /// </summary>
-         ReadOnlyCollection<ISwFlyOutButton> Commands { get; }
-
+        Type[] SubButtons { get; }
 
         /// <summary>
-        /// Will add a command to the list of commands
+        /// List of commands that are on the flyout
         /// </summary>
-        /// <param name="commandName"></param>
-        /// <returns></returns>
-        ISwFlyOutButton AddCommand(string commandName);
-      
+         ReadOnlyCollection<ISwFlyOutButton> Commands { get; set; }
+
+        
     }
 }

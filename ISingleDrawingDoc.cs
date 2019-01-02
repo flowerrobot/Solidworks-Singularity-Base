@@ -9,6 +9,6 @@ namespace SingularityBase
 {
     public interface ISingleDrawingDoc : ISingleModelDoc, IDrawingEvents
     {
-        new DrawingDoc Document { get; }
+        DrawingDoc Document { get; }
     }
 }

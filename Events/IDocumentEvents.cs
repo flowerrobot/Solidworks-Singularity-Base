@@ -19,7 +19,7 @@ namespace SingularityBase.Events
     public delegate int FileSaveAsPreNotify(string filename);
     public interface IDocumentEvents : IDisposable
     {
-        IModelDoc2 Document { get; }
+        IModelDoc2 ModelDoc { get; }
         bool CanRaiseEvent { get; }
 
         #region Properties

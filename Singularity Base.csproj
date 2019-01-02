@@ -75,6 +75,7 @@
     <Compile Include="ISingleModelDoc.cs" />
     <Compile Include="ISingleModelView.cs" />
     <Compile Include="ISinglePartDoc.cs" />
+    <Compile Include="ISinglePlugIn.cs" />
     <Compile Include="ISingleSldWorks.cs" />
     <Compile Include="Managers\CustomPropertyViewModel.cs" />
     <Compile Include="Managers\ISingleCutListFolder.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Managers\ISingleCustomPropertyManager.cs" />
     <Compile Include="Managers\ISingleCutListManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\BaseImp\ISingleCommandDef.cs" />
     <Compile Include="UI\Commands\ISwButton.cs" />
     <Compile Include="UI\Commands\ISwCommand.cs" />
     <Compile Include="UI\Commands\IswCustomFunction.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="UI\Commands\ISwFlyOutButton.cs" />
     <Compile Include="UI\Commands\IswMenu.cs" />
     <Compile Include="UI\Commands\ISwRibbion.cs" />
+    <Compile Include="UI\Icons\IconDef.cs" />
     <Compile Include="UI\Icons\IIconDef.cs" />
     <Compile Include="UI\Icons\IIconManager.cs" />
     <Compile Include="UI\ISwBaseFunction.cs" />
@@ -100,6 +103,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

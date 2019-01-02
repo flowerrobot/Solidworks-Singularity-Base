@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SingularityBase.UI.Icons;
 using SolidWorks.Interop.sldworks;
 
-namespace SingularityBase.UI.Commands
+namespace SingularityBase.UI
 {
     public delegate void CommandExecutedEventHandler(ISwCommand command);
     public delegate IconEnabled IconStateQueryEventHandler(ISwCommand command);
     public interface ISwCommand : ISwBaseFunction
     {
         /// <summary>
-        /// ID of the button given by solidworks
+        /// This command information
         /// </summary>
-        int ButtonId { get; }
+        ISingleCommandDef CommandData { get; set; }
 
         /// <summary>
-        /// The tool tip discription shown when you mouse over the button on the ribbion
+        /// The tool tip description shown when you mouse over the button on the ribbion
         /// </summary>
         string CommandToolTop { get; } //= "This is the HintTip";
 
@@ -31,12 +30,7 @@ namespace SingularityBase.UI.Commands
         /// </summary>
         event IconStateQueryEventHandler IconStateQuery;
 
-        /// <summary>
-        /// Command manager reference
-        /// </summary>
-        ICommandManager CmdMgr { get; }
-
-        /// <summary>
+       /// <summary>
         /// Icons to be used
         /// </summary>
         IIconDef Icons { get; }
@@ -45,11 +39,23 @@ namespace SingularityBase.UI.Commands
         /// Indicates the Icon state
         /// </summary>
         /// <returns></returns>
-        IconEnabled IconState { get; }
+        ///IconEnabled IconState { get; }
 
         /// <summary>
-        /// Allows you to had a seperator on Menu &\or Ribbion before or after the command.
+        /// Allows you to had a separator on Menu &\or Ribbon before or after the command.
         /// </summary>
-        SeperatorLocation Seperator { get; }
+        SeperatorLocation Separator { get; }
+
+
+        /// <summary>
+        /// The function called when the button is pushed
+        /// </summary>
+        void ActionCallback();
+
+        /// <summary>
+        /// Indicates the Icon state
+        /// </summary>
+        /// <returns></returns>
+        IconEnabled IconState { get; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 
-namespace SingularityBase.UI.Icons
-{
+namespace SingularityBase.UI
+{ 
     public interface IIconManager
     {
          NLog.Logger Logger { get; }
@@ -21,7 +21,7 @@ namespace SingularityBase.UI.Icons
         string AddinIconSize128 { get; }
 
 
-        List<IIconDef> Images { get; }
+        List<ISingleCommandDef> Images { get; }
         
         /// <summary>
         /// Merge Image files together
@@ -34,15 +34,16 @@ namespace SingularityBase.UI.Icons
         /// Default small icon
         /// </summary>
         /// <returns></returns>
-         Bitmap DefaultSize16 { get; }
+         Bitmap DefaultSize20 { get; }
 
         /// <summary>
-        /// Defualt Large Icon
+        /// Default Large Icon
         /// </summary>
         /// <returns></returns>
         Bitmap DefaultSize32{ get;}
+
         /// <summary>
-        /// Extracts the image from the resouces and saves it in the temp location
+        /// Extracts the image from the resources and saves it in the temp location
         /// </summary>
         /// <param name="img">The img.</param>
         /// <returns></returns>

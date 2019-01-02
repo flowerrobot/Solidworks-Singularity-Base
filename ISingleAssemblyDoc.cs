@@ -10,7 +10,7 @@ namespace SingularityBase
 {
     public interface ISingleAssemblyDoc : ISingleModelDoc, IAssemblyEvents
     {
-        new AssemblyDoc Document { get; }
+        AssemblyDoc Document { get; }
         ISingleCustomPropertyManager CustomPropertyManager(string configName);
 
         IEnumerable< ISingleConfiguration> Configurations { get; }
