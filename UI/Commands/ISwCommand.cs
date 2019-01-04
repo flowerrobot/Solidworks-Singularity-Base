@@ -6,29 +6,29 @@ using SolidWorks.Interop.sldworks;
 
 namespace SingularityBase.UI
 {
-    public delegate void CommandExecutedEventHandler(ISwCommand command);
-    public delegate IconEnabled IconStateQueryEventHandler(ISwCommand command);
+    //public delegate void CommandExecutedEventHandler(ISwCommand command);
+    //public delegate IconEnabled IconStateQueryEventHandler(ISwCommand command);
     public interface ISwCommand : ISwBaseFunction
     {
         /// <summary>
         /// This command information
         /// </summary>
-        ISingleCommandDef CommandData { get; set; }
+        new ISingleCommandDef CommandData { get; set; }
 
         /// <summary>
         /// The tool tip description shown when you mouse over the button on the ribbion
         /// </summary>
         string CommandToolTop { get; } //= "This is the HintTip";
 
-        /// <summary>
-        /// When the button is pushed, this event is fired
-        /// </summary>
-        event CommandExecutedEventHandler CommandExecuted;
+        ///// <summary>
+        ///// When the button is pushed, this event is fired
+        ///// </summary>
+        //event CommandExecutedEventHandler CommandExecuted;
 
-        /// <summary>
-        /// Triggered when the UI requests update on the Icon State.
-        /// </summary>
-        event IconStateQueryEventHandler IconStateQuery;
+        ///// <summary>
+        ///// Triggered when the UI requests update on the Icon State.
+        ///// </summary>
+        //event IconStateQueryEventHandler IconStateQuery;
 
        /// <summary>
         /// Icons to be used
@@ -48,7 +48,7 @@ namespace SingularityBase.UI
 
 
         /// <summary>
-        /// The function called when the button is pushed
+        /// The function called when the button is pushed by the user
         /// </summary>
         void ActionCallback();
 

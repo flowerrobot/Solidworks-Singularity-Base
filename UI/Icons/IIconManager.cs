@@ -29,7 +29,6 @@ namespace SingularityBase.UI
         /// <returns></returns>
         bool AppendImages();
 
-        //TODO Add 20-128 defaults
         /// <summary>
         /// Default small icon
         /// </summary>
@@ -37,10 +36,27 @@ namespace SingularityBase.UI
          Bitmap DefaultSize20 { get; }
 
         /// <summary>
-        /// Default Large Icon
+        /// Default Icon
         /// </summary>
         /// <returns></returns>
         Bitmap DefaultSize32{ get;}
+
+        /// <summary>
+        /// Default Icon
+        /// </summary>
+        Bitmap DefaultSize40 { get;}
+        /// <summary>
+        /// Default Icon
+        /// </summary>
+        Bitmap DefaultSize64 { get;}
+        /// <summary>
+        /// Default Icon
+        /// </summary>
+        Bitmap DefaultSize96 { get;}
+        /// <summary>
+        /// Default Icon
+        /// </summary>
+        Bitmap DefaultSize128 { get;}
 
         /// <summary>
         /// Extracts the image from the resources and saves it in the temp location

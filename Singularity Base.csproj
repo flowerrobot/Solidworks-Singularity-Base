@@ -90,6 +90,7 @@
     <Compile Include="UI\Commands\IswCustomFunction.cs" />
     <Compile Include="UI\Commands\ISwFlyOut.cs" />
     <Compile Include="UI\Commands\ISwFlyOutButton.cs" />
+    <Compile Include="UI\Commands\ISwInit.cs" />
     <Compile Include="UI\Commands\IswMenu.cs" />
     <Compile Include="UI\Commands\ISwRibbion.cs" />
     <Compile Include="UI\Icons\IconDef.cs" />

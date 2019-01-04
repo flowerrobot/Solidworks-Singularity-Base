@@ -35,5 +35,10 @@ namespace SingularityBase.UI
         /// Defines the type of command
         /// </summary>
         CommandType CmdType { get; }
+
+        /// <summary>
+        /// Indicates of the Menu was implemented. This will always be false for Flyout Groups.
+        /// </summary>
+        bool MenuImplemented { get; }
     }
 }

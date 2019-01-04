@@ -14,13 +14,13 @@ namespace SingularityBase.UI
         /// This is the name of the Ribbon Tab, this must not be a native Solidworks tab name.
         /// Leave blank for default
         /// </summary>
-        string RibbonTabName { get; set; }
+        string RibbonTabName { get;  }
 
         /// <summary>
         /// This name will categorize commands on a sub menu on the ribbon.
         /// Leave Blank for default
         /// </summary>
-        string RibbonSubTabName { get; set; }
+        string RibbonSubTabName { get;  }
 
         /// <summary>
         /// The order of which the command should be inserted on the ribbon

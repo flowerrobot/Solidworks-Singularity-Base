@@ -2,6 +2,10 @@
 
 namespace SingularityBase.UI
 {
+    /// <summary>
+    /// Defines image definition for a button class
+    /// Best to have the icons stored as Bitmap resources and simply pass that here
+    /// </summary>
     public interface IIconDef
     {
         /// <summary>
@@ -29,10 +33,6 @@ namespace SingularityBase.UI
         /// </summary>
         Bitmap ImageSize128 { get; set; }                      
         
-        /// <summary>
-        /// THe postion found on the combined tool bar
-        /// </summary>
-        ///int Index { get; }
         
         /// <summary>
         /// Module who owns this icon profile

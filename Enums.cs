@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using SolidWorks.Interop.swconst;
+using System;
 
 namespace SingularityBase
 {
@@ -46,8 +44,8 @@ namespace SingularityBase
         None = 0,
         Menu = 1,
         ToolBar = 2,
-        Ribbion = 4,
-        All = Menu | ToolBar | Ribbion
+        Ribbon = 4,
+        All = Menu | ToolBar | Ribbon
     }
 
     [Flags]
@@ -55,7 +53,7 @@ namespace SingularityBase
     {
         Part = 1,
         Assembly = 2,
-        Drawing = 3,
+        Drawing = 4,
         All = Part | Assembly | Drawing
     }
 
@@ -64,8 +62,7 @@ namespace SingularityBase
 
         Unknown,
         StructuralMember,
-
-        SheetMetal,
+        SheetMetal
     }
 
     public class FileExtensions
@@ -89,4 +86,22 @@ namespace SingularityBase
         ConfigurationCustomProperty,
         Cutlist
     }
+
+    public static class EnumCompare
+    {
+        public static bool DocumentsEqual(this DocumentTypes s1, swDocumentTypes_e s2)
+        {
+            if (s1.HasFlag(DocumentTypes.Drawing) && s2 == swDocumentTypes_e.swDocDRAWING) return true;
+            if (s1.HasFlag(DocumentTypes.Assembly) && s2 == swDocumentTypes_e.swDocASSEMBLY) return true;
+            if (s1.HasFlag(DocumentTypes.Part) && s2 == swDocumentTypes_e.swDocPART) return true;
+
+            return false;
+        }
+        public static bool DocumentsEqual(this swDocumentTypes_e s2, DocumentTypes s1)
+        {
+            return s1.DocumentsEqual(s2);
+        }
+
+    }
+
 }
