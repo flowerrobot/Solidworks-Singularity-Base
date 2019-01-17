@@ -3,6 +3,11 @@ using System;
 
 namespace SingularityBase
 {
+    public enum EventResponse : int
+    {
+        Okay = 0,
+        Cancel = 1
+    }
     public enum IconEnabled : int
     {
         Deselect_Disable = 0,

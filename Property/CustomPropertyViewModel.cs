@@ -2,7 +2,7 @@
 using SolidWorks.Interop.swconst;
 using System.ComponentModel;
 
-namespace SingularityBase.Managers
+namespace SingularityBase
 {
     /// <summary>
     /// Custom property suitable for MVVM. Implements INotifyPropertyChanged

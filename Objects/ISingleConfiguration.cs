@@ -3,14 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SolidWorks.Interop.swconst;
 
-namespace SingularityBase.Managers
+namespace SingularityBase
 {
-    public interface ISingleConfiguration
+    public interface ISingleConfiguration : ISingleObject
     {
+        new string Name { get; set; }
         string ConfigName { get; set; }
-        ISingleModelDoc Doc { get; }
         IConfiguration Configuration { get; }
         ISingleCustomPropertyManager CustomPropertyManager { get; }
+
+        swConfigurationType_e Type { get; }
+
+        IEnumerable<ISingleConfiguration> ChildConfigurations { get; }
     }
 }

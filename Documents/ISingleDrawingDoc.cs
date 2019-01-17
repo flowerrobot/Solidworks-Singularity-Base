@@ -10,5 +10,8 @@ namespace SingularityBase
     public interface ISingleDrawingDoc : ISingleModelDoc, IDrawingEvents
     {
         DrawingDoc Document { get; }
+        
+        ISingleView GetFirstView { get; }
+        ISingleView GetNextView(ISingleView view);
     }
 }

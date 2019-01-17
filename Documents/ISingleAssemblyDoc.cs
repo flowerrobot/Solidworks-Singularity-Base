@@ -1,5 +1,4 @@
 ﻿using SingularityBase.Events;
-using SingularityBase.Managers;
 using SolidWorks.Interop.sldworks;
 using System;
 using System.Collections.Generic;
@@ -15,6 +14,10 @@ namespace SingularityBase
 
         IEnumerable< ISingleConfiguration> Configurations { get; }
         ISingleConfiguration Configuration(string name);
+
+
+       bool IsInContextEditState { get; }
+       bool InContextEditDocument { get; }
 
     }
 }

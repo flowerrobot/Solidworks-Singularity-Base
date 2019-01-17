@@ -2,7 +2,7 @@
 using SolidWorks.Interop.swconst;
 using System.Collections.Generic;
 
-namespace SingularityBase.Managers
+namespace SingularityBase
 {
     public interface ISingleCustomPropertyManager
     {

@@ -1,5 +1,4 @@
 ﻿using SingularityBase.Events;
-using SingularityBase.Managers;
 using SolidWorks.Interop.sldworks;
 using System.Collections.Generic;
 
@@ -10,7 +9,10 @@ namespace SingularityBase
         PartDoc Document { get; }
         ISingleCustomPropertyManager CustomPropertyManager(string configName);
 
+        ISingleCutListManager CutList { get; }
+
         IEnumerable<ISingleConfiguration> Configurations { get; }
         ISingleConfiguration Configuration(string name);
+        ISingleConfiguration ActiveConfiguration { get; }
     }
 }
