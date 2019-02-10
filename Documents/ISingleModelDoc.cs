@@ -11,6 +11,7 @@ namespace SingularityBase
         ISingleSldWorks SldWorks { get; }
         swDocumentTypes_e Type { get; }
 
+       
         ISingleCustomPropertyManager CustomPropertyManager();
 
         ISingleFeatureManagers FeatureManager { get; }
@@ -53,5 +54,10 @@ namespace SingularityBase
         /// Gets all tables \ BOMs \ revision tables in a file
         /// </summary>
         ITableManager Tables { get; }
+
+        /// <summary>
+        /// The generic Math Utility
+        /// </summary>
+        ISingleMathUtility MathUtility { get; }
     }
 }

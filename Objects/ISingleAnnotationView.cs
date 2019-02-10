@@ -9,9 +9,9 @@ namespace SingularityBase
     /// <summary>
     /// Wrapper for IAnnotationView
     /// </summary>
-    public interface ISingleAnnotationView
+    public interface ISingleAnnotationView : ISingleBaseObject<IAnnotationView>
     {
-        IAnnotationView  AnnotationView { get; }
+        
         /// <summary>
         /// Gets whether this annotation view is a flat-pattern view. 
         /// </summary>

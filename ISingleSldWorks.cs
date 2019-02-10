@@ -27,8 +27,11 @@ namespace SingularityBase
         /// <returns></returns>
         ISingleModelDoc GetDocumentByName(string name);
 
-        CommandManager CommandManager { get; }
-
+        ISingleBaseObject<CommandManager> CommandManager { get; }
+        /// <summary>
+        /// The Math utility
+        /// </summary>
+        ISingleMathUtility MathUtility { get; }
         /// <summary>
         /// The Active SW document, if one present
         /// </summary>

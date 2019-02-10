@@ -4,13 +4,12 @@ using System.Collections.Generic;
 
 namespace SingularityBase
 {
-    public interface ISingleCustomPropertyManager
+    public interface ISingleCustomPropertyManager : ISingleBaseObject<ICustomPropertyManager>
     {
         ISingleModelDoc Document { get; }
         ISingleConfiguration Configuration { get; }
-        ICustomPropertyManager CustomPropertyManager { get; }
 
-        swCustomInfoAddResult_e Add(string Name, swCustomInfoType_e Type, string Value, int OverwriteExisting);
+        swCustomInfoAddResult_e Add(string Name, swCustomInfoType_e Type, string Value, swCustomPropertyAddOption_e OverwriteExisting);
 
         IEnumerable<ISingleCustomProperty> GetAll();
         ISingleCustomProperty GetProperty(string Name);

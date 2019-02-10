@@ -7,15 +7,25 @@ using SolidWorks.Interop.swconst;
 
 namespace SingularityBase
 {
-    public interface ISingleConfiguration : ISingleObject
+    /// <summary>
+    /// Wrapper for IConfiguration
+    /// </summary>
+    public interface ISingleConfiguration : ISingleNamedObject<IConfiguration>
     {
+        int id { get; }
         new string Name { get; set; }
         string ConfigName { get; set; }
-        IConfiguration Configuration { get; }
         ISingleCustomPropertyManager CustomPropertyManager { get; }
 
         swConfigurationType_e Type { get; }
 
-        IEnumerable<ISingleConfiguration> ChildConfigurations { get; }
+        IList<ISingleConfiguration> ChildConfigurations { get; }
+        ISingleConfiguration Parent { get; }
+
+        bool IsDerived { get; }
+
+
+        Dictionary<string, string> Parameters { get; set; }
+       
     }
 }

@@ -10,7 +10,7 @@ namespace SingularityBase
     /// </summary>
     public interface ISingleTable : ISingleFeature
     {
-        IEnumerable<ISingleTableAnnotation> TableAnnotations { get; } //IGeneralTableAnnotation 
+        IList<ISingleTableAnnotation> TableAnnotations { get; } //IGeneralTableAnnotation 
 
         //TODO add events for when things change on the UI
     }
@@ -30,8 +30,8 @@ namespace SingularityBase
         ISingleAnnotation GetAnnotation { get; }
         swTableAnnotationType_e TableType { get; }
 
-        IEnumerable<ISingleTableColumn> Columns { get; }
-        IEnumerable<ISingleTableRow> Rows { get; }
+        IList<ISingleTableColumn> Columns { get; }
+        IList<ISingleTableRow> Rows { get; }
 
         bool DeleteColumn(int index);
         bool DeleteRow(int index);
@@ -97,11 +97,11 @@ namespace SingularityBase
     public interface ISingleTableRow
     {
         ISingleTableAnnotation Annotation { get; }
-        IEnumerable<ISingleTableColumn> Columns { get; }
-        IEnumerable<ISingleTableCell> Cells { get; }
+        IList<ISingleTableColumn> Columns { get; }
+        IList<ISingleTableCell> Cells { get; }
 
         double GetRowHeight();
-        double SetRowHeight(double height, swTableRowColSizeChangeBehavior_e Options);
+        double SetRowHeight(double height, swTableRowColSizeChangeBehavior_e options);
         double RowVerticalGap { get; set; }
         bool LockRowHeight { get; set; }
         bool RowHidden { get; set; }
@@ -114,14 +114,14 @@ namespace SingularityBase
     public interface ISingleTableColumn
     {
         ISingleTableAnnotation Annotation { get; }
-        IEnumerable<ISingleTableRow> Rows { get; }
+        IList<ISingleTableRow> Rows { get; }
 
         double GetColumnWidth { get; }
         double SetColumnWidth(double width, swTableRowColSizeChangeBehavior_e options);
 
-        swTableColumnTypes_e GetColumnType { get; set; }
-        string GetColumnTitle { get; set; }
-        bool GetLockColumnWidth { get; set; }
+        swTableColumnTypes_e ColumnType { get; set; }
+        string ColumnTitle { get; set; }
+        bool LockColumnWidth { get; set; }
         bool ColumnHidden { get; set; }
 
         int ColumnIndex { get; }

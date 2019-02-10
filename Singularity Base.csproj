@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="C:\temp\_Nugetpackages\PropertyChanging.Fody.1.29.3\build\PropertyChanging.Fody.props" Condition="Exists('C:\temp\_Nugetpackages\PropertyChanging.Fody.1.29.3\build\PropertyChanging.Fody.props')" />
   <Import Project="..\..\..\..\..\..\..\..\..\temp\_Nugetpackages\PropertyChanged.Fody.2.6.0\build\PropertyChanged.Fody.props" Condition="Exists('..\..\..\..\..\..\..\..\..\temp\_Nugetpackages\PropertyChanged.Fody.2.6.0\build\PropertyChanged.Fody.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -15,6 +16,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,36 +35,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\..\..\..\temp\_Nugetpackages\NLog.4.5.11\lib\net40-client\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="SolidWorks.Interop.sldworks, Version=25.5.0.83, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\..\..\..\temp\_Nugetpackages\Solidworks.Interop.Basic.17.5.2\lib\net20\SolidWorks.Interop.sldworks.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="SolidWorks.Interop.swcommands, Version=25.5.0.83, Culture=neutral, PublicKeyToken=0fda92720ba7919f, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\..\..\..\temp\_Nugetpackages\Solidworks.Interop.Basic.17.5.2\lib\net20\SolidWorks.Interop.swcommands.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="SolidWorks.Interop.swconst, Version=25.5.0.83, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\..\..\..\temp\_Nugetpackages\Solidworks.Interop.Basic.17.5.2\lib\net20\SolidWorks.Interop.swconst.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Enums.cs" />
     <Compile Include="Events\IDocumentEvent.cs" />
@@ -72,10 +50,14 @@
     <Compile Include="Events\IAssemblyEvents.cs" />
     <Compile Include="Events\IDrawingEvents.cs" />
     <Compile Include="Events\ISolidWorksEvent.cs" />
+    <Compile Include="Events\remaining Events to implement.cs" />
     <Compile Include="FeatureNameEnum.cs" />
     <Compile Include="Documents\ISingleAssemblyDoc.cs" />
     <Compile Include="Documents\ISingleDrawingDoc.cs" />
     <Compile Include="Documents\ISingleModelDoc.cs" />
+    <Compile Include="Managers\ISingleFlatPatternFolder.cs" />
+    <Compile Include="Managers\ISingleMathUtility.cs" />
+    <Compile Include="Objects\ISingleBaseObject.cs" />
     <Compile Include="ISingleModelView.cs" />
     <Compile Include="Documents\ISinglePartDoc.cs" />
     <Compile Include="ISinglePlugIn.cs" />
@@ -87,8 +69,12 @@
     <Compile Include="Objects\ISingleBody.cs" />
     <Compile Include="Objects\ISingleComponent.cs" />
     <Compile Include="Objects\ISingleDrawingComponent.cs" />
-    <Compile Include="Objects\ISingleObject.cs" />
+    <Compile Include="Objects\ISingleEdge.cs" />
+    <Compile Include="Objects\ISingleFace.cs" />
+    <Compile Include="Objects\ISingleNamedObject.cs" />
+    <Compile Include="Objects\ISingleVertex.cs" />
     <Compile Include="Objects\ISingleView.cs" />
+    <Compile Include="Objects\ISinglePoint.cs" />
     <Compile Include="Objects\Tables\ISingleTable.cs" />
     <Compile Include="Objects\Tables\ISingleWeldmentCutListTable.cs" />
     <Compile Include="Objects\Tables\old\ISingleBomTable.cs" />
@@ -125,14 +111,29 @@
     <Compile Include="UI\Ribbon\IRibbionGroupCollection.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="SolidWorks.Interop.sldworks, Version=25.5.0.83, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL">
+      <HintPath>C:\temp\_Nugetpackages\Solidworks.Interop.Basic.17.5.2\lib\net20\SolidWorks.Interop.sldworks.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swcommands, Version=25.5.0.83, Culture=neutral, PublicKeyToken=0fda92720ba7919f, processorArchitecture=MSIL">
+      <HintPath>C:\temp\_Nugetpackages\Solidworks.Interop.Basic.17.5.2\lib\net20\SolidWorks.Interop.swcommands.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swconst, Version=25.5.0.83, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL">
+      <HintPath>C:\temp\_Nugetpackages\Solidworks.Interop.Basic.17.5.2\lib\net20\SolidWorks.Interop.swconst.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\..\..\..\..\..\..\temp\_Nugetpackages\PropertyChanged.Fody.2.6.0\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\..\..\..\..\temp\_Nugetpackages\PropertyChanged.Fody.2.6.0\build\PropertyChanged.Fody.props'))" />
+    <Error Condition="!Exists('C:\temp\_Nugetpackages\PropertyChanging.Fody.1.29.3\build\PropertyChanging.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'C:\temp\_Nugetpackages\PropertyChanging.Fody.1.29.3\build\PropertyChanging.Fody.props'))" />
   </Target>
 </Project>

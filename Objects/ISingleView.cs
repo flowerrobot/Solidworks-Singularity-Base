@@ -7,9 +7,8 @@ namespace SingularityBase
     /// <summary>
     /// Wrapper for IView 
     /// </summary>
-    public interface ISingleView : ISingleObject
+    public interface ISingleView :  ISingleNamedObject<IView>
     {
-        IView View { get; }
         ISingleView GetNextView { get; }
 
         int GetTableAnnotationCount { get; }
@@ -17,7 +16,7 @@ namespace SingularityBase
         /// <summary>
         /// returns a BOM table if there is a Microsoft Excel-based BOM for the drawing view
         /// </summary>
-        IBomTable GetBomTable { get; }
+        ISingleBaseObject<IBomTable> GetBomTable { get; }
 
         /// <summary>
         /// access to table annotations. 
@@ -30,6 +29,19 @@ namespace SingularityBase
 
 
         ISingleDrawingComponent RootDrawingComponent { get; }
+
+        ISingleModelDoc ReferencedDocument { get; }
+
+        /// <summary>
+        /// Gets whether a drawing view is a flat-pattern drawing view. 
+        /// </summary>
+        bool IsFlatPatternView { get; }
+
+        /// <summary>
+        /// Gets the bodies of a multibody part in the drawing view. 
+        /// </summary>
+       IList<ISingleBody> GetBodies { get; }
+
 
     }
 }

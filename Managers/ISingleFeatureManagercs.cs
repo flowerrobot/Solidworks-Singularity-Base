@@ -9,9 +9,9 @@ namespace SingularityBase
     /// <summary>
     /// Is a wrapper for IFeatureManager 
     /// </summary>
-    public interface ISingleFeatureManagers
+    public interface ISingleFeatureManagers : ISingleBaseObject<IFeatureManager>
     {
-        IFeatureManager FeatureManager { get; }
+        
         ISingleModelDoc Document { get; }
 
         ISingleFeature GetFirstFeature { get; }
@@ -30,13 +30,15 @@ namespace SingularityBase
         /// <returns></returns>
         IDisposable DisableFeatureTreeWindow();
 
-
-        IFlatPatternFolder GetFlatPatternFolder { get; }
+        /// <summary>
+        /// The Flat pattern feature folder
+        /// </summary>
+        ISingleFlatPatternFolder GetFlatPatternFolder { get; }
 
         /// <summary>
         /// Gets the interface to the sheet metal folder feature in the FeatureManager design tree. 
         /// </summary>
-        ISheetMetalFolder GetSheetMetalFolder { get; }
+        ISingleBaseObject<ISheetMetalFolder> GetSheetMetalFolder { get; }
 
 
 

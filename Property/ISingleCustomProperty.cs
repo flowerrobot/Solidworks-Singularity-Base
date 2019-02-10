@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SingularityBase
 {
-    public interface ISingleCustomProperty
+    public interface ISingleCustomProperty 
     {
         string Name { get; set; }
         string RawValue { get; set; }

@@ -10,7 +10,7 @@ namespace SingularityBase
 
     {
         IWeldmentCutListFeature TableFeature { get; }
-        new IEnumerable<ISingleWeldmentCutListAnnotation> TableAnnotations { get; }
+        new IList<ISingleWeldmentCutListAnnotation> TableAnnotations { get; }
         ISingleView View { get; }
 
         string Configuration { get; set; }
@@ -27,8 +27,8 @@ namespace SingularityBase
 
     {
         new IWeldmentCutListAnnotation TableAnnotation { get; }
-        new IEnumerable<ISingleCutListColumn> Columns { get; }
-        new IEnumerable<ISingleCutListRow> Rows { get; }
+        new IList<ISingleCutListColumn> Columns { get; }
+        new IList<ISingleCutListRow> Rows { get; }
 
         bool Sort(int columnIndex, bool sortAscending);
 
@@ -40,8 +40,8 @@ namespace SingularityBase
     public interface ISingleCutListRow : ISingleTableRow
     {
         new ISingleWeldmentCutListAnnotation Annotation { get; }
-        new IEnumerable<ISingleCutListCell> Cells { get; }
-        new IEnumerable<ISingleCutListColumn> Columns { get; }
+        new IList<ISingleCutListCell> Cells { get; }
+        new IList<ISingleCutListColumn> Columns { get; }
     }
 
     public interface ISingleCutListColumn : ISingleTableColumn
@@ -50,7 +50,7 @@ namespace SingularityBase
         string ColumnCustomProperty { get; set; }
 
         int GetAllCustomPropertiesCount { get; }
-        IEnumerable<string> GetAllCustomProperties { get; }
+        IList<string> GetAllCustomProperties { get; }
     }
 
 

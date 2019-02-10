@@ -5,10 +5,9 @@ namespace SingularityBase
     /// <summary>
     /// Wrapper for ISelectionMgr
     /// </summary>
-    public interface ISingleSelectionManager
+    public interface ISingleSelectionManager : ISingleBaseObject<ISelectionMgr>
     {
-        ISelectionMgr SelectionMgr { get; }
 
-       ISelectData CreateSelectData { get; }
+        ISingleBaseObject<ISelectData> CreateSelectData { get; }
     }
 }

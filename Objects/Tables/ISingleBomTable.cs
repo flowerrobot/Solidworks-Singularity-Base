@@ -12,7 +12,7 @@ namespace SingularityBase
     {
         //new BomTable Table { get; } //This is an obsolete feature in SW
         IBomFeature TableFeature { get; }
-        new IEnumerable<ISingleBomTable> TableAnnotations { get; }
+        new IList<ISingleBomTableAnnotation> TableAnnotations { get; }
         ISingleView View { get; }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace SingularityBase
         /// <param name="onlyVisible">True to get the names of configurations currently displayed in this table, false to get the names of configurations available to this table</param>
         /// <param name="isVisible"></param>Array of BOOLEANs indicating the visibility of the configurations</param>
         /// <returns>Array of strings of the names of the configurations</returns>
-        IEnumerable<string> GetConfigurations(bool onlyVisible, out IEnumerable<bool> isVisible);
+        IList<string> GetConfigurations(bool onlyVisible, out IEnumerable<bool> isVisible);
         bool SetConfigurations(bool onlyVisible, IEnumerable<bool> visible, IEnumerable<string> configurations);
 
         string Configuration { get; }
@@ -59,6 +59,7 @@ namespace SingularityBase
     /// </summary>
     public interface ISingleBomTableAnnotation : ISingleTableAnnotation
     {
+        new ISingleBomTable Table { get; }
         new IBomTableAnnotation TableAnnotation { get; }
 
         //int TableAnnotationCount { get; }
@@ -68,8 +69,8 @@ namespace SingularityBase
         /// </summary>
         /// <returns></returns>
         BomTableSortData BomTableSortData { get; set; }
-        new IEnumerable<ISingleBomColumn> Columns { get; }
-        new IEnumerable<ISingleBomRow> Rows { get; }
+        new IList<ISingleBomColumn> Columns { get; }
+        new IList<ISingleBomRow> Rows { get; }
 
         //bool Sort(BomTableSortData sortData);
         //bool ApplySavedSortScheme(BomTableSortData sortData);
@@ -79,16 +80,17 @@ namespace SingularityBase
     public interface ISingleBomRow : ISingleTableRow
     {
         new ISingleBomTableAnnotation Annotation { get; }
-        new IEnumerable<ISingleBomCell> Cells { get; }
-        new IEnumerable<ISingleBomColumn> Columns { get; }
+        new IList<ISingleBomCell> Cells { get; }
+        new IList<ISingleBomColumn> Columns { get; }
 
-
-        IEnumerable<Component2> GetComponents(string configuration);
-        IEnumerable<ISingleModelDoc> GetModelPathNames(out string itemNumber, out string partNumber);
+        IList<ISingleComponent> GetComponents(string configuration);
+        IList<ISingleModelDoc> GetModelPathNames(out string itemNumber, out string partNumber);
         int GetComponentsCount(string configuration, out string itemNumber, out string partNumber);
 
         bool Dissolve();
         bool RestoreRestructuredComponents();
+
+        string RowItemNumber { get; }
     }
 
     public interface ISingleBomColumn : ISingleTableColumn
@@ -100,7 +102,7 @@ namespace SingularityBase
         bool ColumnUseTitleAsPartNumber { get; set; }
 
         int GetAllCustomPropertiesCount { get; }
-        IEnumerable<string> GetAllCustomProperties { get; }
+        IList<string> GetAllCustomProperties { get; }
     }
 
     public interface ISingleBomCell : ISingleTableCell

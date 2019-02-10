@@ -9,11 +9,10 @@ namespace SingularityBase
     /// <summary>
     /// Wrapper for IComponent2 
     /// </summary>
-    public interface ISingleComponent : ISingleObject, ISelectable
+    public interface ISingleComponent : ISingleNamedObject<IComponent2>, ISelectable
     {
         ISingleConfiguration ReferencedConfiguration { get; }
         string ReferencedDisplayState { get; }
-        IComponent2 Component { get; }
 
         IEnumerable<ISingleComponent> GetChildren { get; }
         int GetChildrenCount { get; }

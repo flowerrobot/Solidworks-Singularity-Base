@@ -16,7 +16,7 @@ namespace SingularityBase
 
 
 
-        IEnumerable<ISingleWeldmentCutListTable> GetWeldmentTables { get; }
-        IEnumerable<ISingleBomTable> GetBomTables { get; }
+        IList<ISingleWeldmentCutListTable> GetWeldmentTables { get; }
+        IList<ISingleBomTable> GetBomTables { get; }
     }
 }

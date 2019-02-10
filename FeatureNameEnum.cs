@@ -12,7 +12,7 @@ namespace SingularityBase
     /// TODO what about swSelectType
     public enum FeatureName
     {
-       [Feature("None", "None", "FeatureNameNotFound")]   None,
+       [Feature("None", "None", "NoFeatureName")]   None,
         [Feature("Assembly", "ISketch", "ExplodeLineProfileFeature")] ExplodeLineProfileFeature,
         [Feature("Assembly", "IFeature", "InContextFeatHolder")] InContextFeatHolder,
         [Feature("Assembly", "IFeature", "MagneticGroundPlane")] MagneticGroundPlane,

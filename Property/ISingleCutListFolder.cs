@@ -7,16 +7,16 @@ namespace SingularityBase
     /// <summary>
     /// Wrapper for the IBodyFolder
     /// </summary>
-    public interface ISingleCutListFolder : ISingleCustomPropertyManager
+    public interface ISingleCutListFolder : ISingleBaseObject<IBodyFolder>, ISingleCustomPropertyManager
     {
-        string Name { get; }
+        string Name { get; set; }
+        int Id { get; }
         ISingleFeature Feature { get; }
-        IBodyFolder CutFolder { get; }
 
         new ISingleModelDoc Document { get; }
 
         int GetBodyCount { get; }
-        IEnumerable<ISingleBody> GetBodies { get; }
+        IList<ISingleBody> GetBodies { get; }
 
         swBodyFolderFeatureType_e Type { get; }
         swCutListType_e CutListType { get; }

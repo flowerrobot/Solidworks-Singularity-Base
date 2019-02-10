@@ -6,9 +6,8 @@ namespace SingularityBase
     /// <summary>
     /// Wrapper for IAnnotation
     /// </summary>
-    public interface ISingleAnnotation : ISingleObject, IDisposable
+    public interface ISingleAnnotation : ISingleNamedObject<IAnnotation>
     {
-        IAnnotation Annotation { get; }
 
         /// <summary>
         /// Annotation view for this annotation.  

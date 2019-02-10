@@ -5,7 +5,7 @@ namespace SingularityBase.UI
 { 
     public interface IIconManager
     {
-         NLog.Logger Logger { get; }
+         //NLog.Logger Logger { get; }
         string ImagePathSize20 { get; }
         string ImagePathSize32 { get; }
         string ImagePathSize40 { get; }
